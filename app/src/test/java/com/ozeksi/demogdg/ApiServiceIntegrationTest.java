@@ -16,7 +16,7 @@ import java.util.Timer;
 import java.util.concurrent.CountDownLatch;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class UserApiIntegrationTest {
+public class ApiServiceIntegrationTest {
     private static final int serverStartDelay = 3000;
     //    private static final String configUrl = "http://localhost:8080";
     private static TestServer testServer;
