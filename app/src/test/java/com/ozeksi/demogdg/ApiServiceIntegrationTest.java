@@ -29,13 +29,6 @@ public class ApiServiceIntegrationTest {
         Thread.sleep(serverStartDelay);
     }
 
-    @AfterClass
-    public static void stop_server() {
-        if (testServer != null) {
-            testServer.stop();
-        }
-    }
-
     @Test
     public void test_001_test() throws InterruptedException {
         TestCallback testResult = new TestCallback();
@@ -50,6 +43,12 @@ public class ApiServiceIntegrationTest {
         Assert.assertEquals(true, testResult.isSuccess());
     }
 
+    @AfterClass
+    public static void stop_server() {
+        if (testServer != null) {
+            testServer.stop();
+        }
+    }
 
     private static class TestCallback implements ResponseHandler {
         private static final int requestTimeout = 2000;
