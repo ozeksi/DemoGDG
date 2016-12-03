@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     defaultConfig {
-        applicationId "com.ozeksi.retrofitexample"
+        applicationId "com.ozeksi.demogdg"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
@@ -41,6 +41,6 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     compile 'com.facebook.stetho:stetho:1.4.1'
     compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
-    testCompile project(':test-server')
+//    testCompile project(':test-server')
     androidTestCompile 'com.android.support:support-annotations:25.0.1'
 }
