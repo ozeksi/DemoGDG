@@ -18,13 +18,11 @@ import java.util.concurrent.CountDownLatch;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ApiServiceIntegrationTest {
     private static final int serverStartDelay = 3000;
-    //    private static final String configUrl = "http://localhost:8080";
     private static TestServer testServer;
     private static ApiService apiService;
 
     @BeforeClass
     public static void start_server() throws Exception {
-//        AppConfig.ENDPOINT_CONFIG_BASE_URL = configUrl;
         apiService = new ServiceProvider().provideApiService();
         testServer = new TestServer();
         testServer.start();
@@ -46,7 +44,7 @@ public class ApiServiceIntegrationTest {
     }
 
     @Test
-    public void test_001_getUser() throws InterruptedException {
+    public void test_002_getUser() throws InterruptedException {
         TestCallback testResult = new TestCallback();
         apiService.getUser(testResult);
         Assert.assertEquals(true, testResult.isSuccess());
