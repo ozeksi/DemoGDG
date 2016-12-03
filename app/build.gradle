@@ -3,6 +3,12 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
     defaultConfig {
         applicationId "com.ozeksi.demogdg"
         minSdkVersion 16
@@ -34,13 +40,13 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
-//    compile 'com.fasterxml.jackson.core:jackson-core:2.7.3'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.7.2'
     compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
-//    compile 'com.google.guava:guava:19.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     compile 'com.facebook.stetho:stetho:1.4.1'
     compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
-//    testCompile project(':test-server')
+    testCompile group: 'javax.annotation', name: 'javax.annotation-api', version: '1.2'
+    compile project(':test-server')
     androidTestCompile 'com.android.support:support-annotations:25.0.1'
 }

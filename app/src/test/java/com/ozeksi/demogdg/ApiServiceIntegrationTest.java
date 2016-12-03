@@ -1,6 +1,6 @@
 package com.ozeksi.demogdg;
 
-//import com.ozeksi.TestServer;
+import com.ozeksi.TestServer;
 import com.ozeksi.demogdg.network.ResponseHandler;
 import com.ozeksi.demogdg.network.ServiceProvider;
 import com.ozeksi.demogdg.network.api.ApiService;
@@ -19,16 +19,16 @@ import java.util.concurrent.CountDownLatch;
 public class ApiServiceIntegrationTest {
     private static final int SERVER_START_DELAY = 3000;
     private static final String LOCALHOST = "http://localhost:8080";
-    //    private static TestServer testServer;
+    private static TestServer testServer;
     private static ApiService apiService;
 
     @BeforeClass
     public static void start_server() throws Exception {
         AppConfig.ENDPOINT_CONFIG_BASE_URL = LOCALHOST;
         apiService = new ServiceProvider().provideApiService();
-//        testServer = new TestServer();
-//        testServer.start();
-//        Thread.sleep(SERVER_START_DELAY);
+        testServer = new TestServer();
+        testServer.start();
+        Thread.sleep(SERVER_START_DELAY);
     }
 
     @Test
@@ -47,9 +47,9 @@ public class ApiServiceIntegrationTest {
 
     @AfterClass
     public static void stop_server() {
-//        if (testServer != null) {
-//            testServer.stop();
-//        }
+        if (testServer != null) {
+            testServer.stop();
+        }
     }
 
     private static class TestCallback implements ResponseHandler {
