@@ -17,7 +17,7 @@ import java.util.concurrent.CountDownLatch;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ApiServiceIntegrationTest {
-    private static final int serverStartDelay = 3000;
+    private static final int SERVER_START_DELAY = 3000;
     private static TestServer testServer;
     private static ApiService apiService;
 
@@ -26,7 +26,7 @@ public class ApiServiceIntegrationTest {
         apiService = new ServiceProvider().provideApiService();
         testServer = new TestServer();
         testServer.start();
-        Thread.sleep(serverStartDelay);
+        Thread.sleep(SERVER_START_DELAY);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class ApiServiceIntegrationTest {
     }
 
     private static class TestCallback implements ResponseHandler {
-        private static final int requestTimeout = 2000;
+        private static final int REQUEST_TIMEOUT = 2000;
         private final CountDownLatch latch;
         private final Timer timer;
         private boolean testPassed;
@@ -68,7 +68,7 @@ public class ApiServiceIntegrationTest {
                             latch.countDown();
                         }
                     },
-                    requestTimeout
+                    REQUEST_TIMEOUT
             );
         }
 
